@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    {% feed_meta %}
+    {% seo %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="branding">
+          <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
+          {% if site.description %}
+          <p class="site-subtitle">{{ site.description }}</p>
+          {% endif %}
+        </div>
+        <nav class="site-nav">
+          <a href="{{ "/" | relative_url }}">Home</a>
+          <a href="{{ "/archives/" | relative_url }}">Archive</a>
+          <a href="{{ "/about/" | relative_url }}">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>{{ page.hero_title | default: site.title }}</h1>
+        {% if page.hero_subtitle %}
+          <p>{{ page.hero_subtitle }}</p>
+        {% elsif site.subtitle %}
+          <p>{{ site.subtitle }}</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <main class="site-main wrapper">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>© {{ site.time | date: "%Y" }} {{ site.title }} · {{ site.author }}</p>
+      </div>
+    </footer>
+  </body>
+</html>
