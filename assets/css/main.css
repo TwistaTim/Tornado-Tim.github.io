@@ -1,14 +1,16 @@
-/* Updated main.css with readability improvements */
+/* Softer, calmer Diawatch main.css */
 
 :root {
-  --bg: #111217;
-  --bg-alt: #171923;
-  --fg: #e5e7f1;
-  --accent: #ff5f6c;
-  --muted: #9ca3c8;
+  --bg: #0d0f14;
+  --bg-alt: #151821;
+  --fg: #e8e9f3;
+  --accent: #ff6b81;
+  --muted: #a0a4b8;
   --content-width: 720px;
   --radius: 12px;
 }
+
+/* Base */
 
 *,
 *::before,
@@ -26,9 +28,11 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--fg);
-  line-height: 1.7;
+  line-height: 1.75;
   font-size: 16px;
 }
+
+/* Layout */
 
 .wrapper {
   max-width: var(--content-width);
@@ -37,6 +41,7 @@ body {
 }
 
 /* Header */
+
 .site-header {
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(10px);
@@ -64,11 +69,6 @@ body {
   color: var(--muted);
 }
 
-.branding {
-  display: flex;
-  flex-direction: column;
-}
-
 .site-nav a {
   color: var(--muted);
   text-decoration: none;
@@ -81,12 +81,12 @@ body {
 }
 
 /* Hero */
+
 .hero {
-  background-image: linear-gradient(120deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("/images/cover1.jpg");
+  background-image: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url("/images/cover1.jpg");
   background-size: cover;
   background-position: center;
   padding: 4rem 1.5rem 3rem;
-  text-align: left;
 }
 
 .hero-inner {
@@ -95,8 +95,9 @@ body {
 }
 
 .hero h1 {
-  margin: 0 0 0.5rem;
   font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+  color: var(--fg);
 }
 
 .hero p {
@@ -105,23 +106,28 @@ body {
 }
 
 /* Main */
+
 .site-main {
-  padding: 2rem 1.5rem 3rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
-/* Post container */
+/* Post container (softer, gentler card) */
+
 .post {
   background: var(--bg-alt);
-  padding: 2.2rem 2.1rem 2.6rem;
+  padding: 2.2rem 2rem 2.8rem;
   border-radius: var(--radius);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 3px 12px rgba(0, 0, 0, 0.25);
+  margin-top: -2.2rem;
 }
 
 .post-header h1 {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 2.1rem;
-  line-height: 1.3;
+  font-size: 2.05rem;
+  line-height: 1.35;
 }
 
 .post-meta {
@@ -130,70 +136,141 @@ body {
   color: var(--muted);
 }
 
-/* Headings inside posts */
+/* Headings */
+
 .post-content h2 {
   font-size: 1.4rem;
-  margin: 2.2rem 0 0.8rem;
+  margin: 2rem 0 0.85rem;
   font-weight: 600;
+  color: #f0f1fa;
 }
 
 .post-content h3 {
   font-size: 1.15rem;
-  margin: 1.8rem 0 0.6rem;
+  margin: 1.6rem 0 0.6rem;
   font-weight: 600;
+  color: #eef0fa;
 }
 
-/* Paragraph spacing */
+/* Paragraphs */
+
 .post-content p {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.2rem;
   font-size: 1rem;
+  color: #e4e6f2;
 }
 
-.post-content p:first-of-type {
-  font-size: 1.05rem;
-  color: #f1f2fb;
+/* Drop cap – softer, not dramatic */
+
+.post-content p:first-of-type::first-letter {
+  float: left;
+  font-size: 2.6rem;
+  line-height: 1;
+  padding-right: 0.35rem;
+  padding-top: 0.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+/* Links */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Blockquotes (gentle highlight, not harsh) */
+
+.post-content blockquote {
+  margin: 1.6rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 10px 10px 0;
+  color: #f3f4fc;
+  font-style: italic;
+}
+
+.post-content blockquote p {
+  margin: 0.2rem 0;
 }
 
 /* Lists */
+
 .post-content ul {
   padding-left: 1.4rem;
   margin: 0 0 1.4rem;
 }
 
 .post-content li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
 /* Horizontal rule */
+
 .post-content hr {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin: 2rem 0;
 }
 
+/* Code blocks */
+
+.post-content pre,
+.post-content code {
+  font-family: Menlo, Consolas, "SF Mono", "Roboto Mono", monospace;
+  font-size: 0.9rem;
+}
+
+.post-content pre {
+  background: #0c0d12;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.06);
+  margin: 1.4rem 0;
+  color: #f8f9ff;
+}
+
+.post-content code {
+  background: rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.15rem 0.4rem;
+}
+
+/* Inline code inside pre shouldn't get extra padding */
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
 /* Footer */
+
 .site-footer {
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding: 1.5rem 1.5rem 2rem;
   font-size: 0.8rem;
   color: var(--muted);
 }
+
+/* Mobile */
 
 @media (max-width: 768px) {
   .site-header .wrapper {
     flex-direction: column;
     align-items: flex-start;
   }
-
   .site-nav {
     margin-top: 0.5rem;
   }
-
-  .hero {
-    padding-top: 3rem;
-  }
-
   .post {
-    padding: 1.6rem 1.4rem 2rem;
+    padding: 1.8rem 1.3rem 2.2rem;
+    margin-top: -1.5rem;
   }
 }
