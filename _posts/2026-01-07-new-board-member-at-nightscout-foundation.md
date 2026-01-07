@@ -51,8 +51,9 @@ Some exciting news:
 **Hack 2026 will be happening!**
 
 ---
+If you would like to read the current issue of the [Nightscout Newsletter](https://mailchi.mp/f238c83be377/thank-you-from-the-nightscout-foundatoin?e=82068eb719).
 
-I hope you have had a wonderful Christmas and New Years.
+Hope you have had a wonderful Christmas and New Years.
 
 See you perhaps in person in 2026!
 
